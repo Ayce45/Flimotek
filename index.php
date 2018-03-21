@@ -66,10 +66,10 @@ session_start();
                                             <img class="img-responsive" src="image/<?= $donnees["image"] ?>" alt="prewiew">
                                         </div>
                                         <div class="col-xs-4 col-md-2">
-                                            <h4 class="product-name"><strong><?= $donnees["Titre"] ?></strong></h4><h4><small><?= $donnees["Genre"] ?></small></h4>
-                                            <h4><small><?= $donnees["Format"] ?></small></h4>
-                                            <h4><small><?= $donnees["Prix"] ?> €</small></h4>
-                                            <h4><small><?= $donnees["Etat"] ?></small></h4>
+                                            <h4 class="product-name"><strong><?= $donnees["titre"] ?></strong></h4><h4><small><?= $donnees["genre"] ?></small></h4>
+                                            <h4><small><?= $donnees["format"] ?></small></h4>
+                                            <h4><small><?= $donnees["prix"] ?> €</small></h4>
+                                            <h4><small><?= $donnees["etat"] ?></small></h4>
                                                                                     </div>
                                         <div class="col-xs-6 col-md-6 row">
                                             <p><?= $donnees["resume"] ?></p>
