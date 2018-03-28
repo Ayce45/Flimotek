@@ -92,7 +92,8 @@ logged_only();
                                                     <th>Date d'achat</th>
                                                     <th>Prix</th>
                                                     <th>Etat</th>
-                                                    <th>image</th>
+                                                    <th>Image</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
 
@@ -111,6 +112,7 @@ logged_only();
                                                     <td><?= $donnees["film_prix"] ?> €</td>
                                                     <td><?= $donnees["film_etat"] ?></td>
                                                     <td><a class="color7" target="_blank" href="../image/<?= $donnees["film_image"] ?>"><?= $donnees["film_image"] ?></a></td>
+                                                    <td> <button class="btn btn-danger btn-sm"  onclick="window.location.href='deleteFilm.php?id=<?= $donnees["film_num"] ?>'" data-toggle="modal"><i class="fa fa-trash-o"></i></button>	  </td>
                                                 </tr>
 
 <?php } ?>

@@ -80,7 +80,6 @@ logged_only();
 
                                         <table class="table table-bordered table-hover table-striped" style="table-layout: fixed">
                                             <thead>
-
                                                 <tr>
 
                                                     <th>Numéro</th>
@@ -88,6 +87,7 @@ logged_only();
                                                     <th>Adresse</th>
                                                     <th>Téléphone</th>
                                                     <th>Email</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
 
@@ -103,6 +103,7 @@ logged_only();
                                                     <td><?= $donnees["adresse"] ?></td>
                                                     <td><?= $donnees["tel"] ?></td>
                                                     <td><?= $donnees["email"] ?></td>
+                                                    <td> <button class="btn btn-danger btn-sm"  onclick="window.location.href='deleteAccount.php?id=<?= $donnees["id"] ?>'" data-toggle="modal"><i class="fa fa-trash-o"></i></button>	  </td>
                                                 </tr>
 
                                             <?php } ?>

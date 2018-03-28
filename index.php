@@ -40,8 +40,9 @@ include 'connect.php';
                             <h1><a href="./"><span class="m_1">F</span>LIMOTEK</a></h1>
                         </div>
                         <div class="menu">
-                            <ul class="megamenu skyblue">	
-                                <li><a class="color7" href="inscription.php">Inscription</a></li>
+                            <ul class="megamenu skyblue">
+                                <li><a class="color7" href="connexion.php">Connexion</a></li>
+                                <li><a class="color7" href="inscription.php">Inscription</a></li>                                
                             </ul>
                         </div>
                     </div>
