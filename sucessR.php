@@ -1,14 +1,15 @@
 <?php
 session_start();
-include 'connect.php';
+session_destroy();
 ?>
+
 <!DOCTYPE HTML>
-<html>
+<html style="background-color:rgb(0, 53, 106)">
     <head>
-        <title>FLIMOTEK</title>
+        <title>LAFLEUR</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="FLIMOTEK E-MOVIE" />
+        <meta name="keywords" content="LAFLEUR E-COMMERCE" />
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -23,18 +24,17 @@ include 'connect.php';
         <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
         <script type="text/javascript" src="js/megamenu.js"></script>
         <script src="js/jquery.easydropdown.js"></script>
-        <link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon" />
+        <link rel="shortcut icon" href="../images/favicon.ico" type="images/x-icon" />
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon" /> 
     </head>
     <body style="background-color:rgb(0, 53, 106)">
         <header>
             <div class="banner">
                 <div class="container">
-                    <div class="header_top">
-                    </div>
                     <div class="header_bottom">
                         <div class="logo">
                             <h1><a href="./"><span class="m_1">F</span>LIMOTEK</a></h1>
@@ -46,53 +46,38 @@ include 'connect.php';
                         </div>
                     </div>
                 </div>
+            </div>
         </header>
         <div class="container">
             <div class="row">
                 <div class="box ">
                     <div class="info">
                         <div class="card">
-                            <br>
                             <div class="card-header bg-dark text-light">
                                 <div class="clearfix"></div>
                             </div>
-                            <?php
-                            $reponse = $bdd->query("SELECT * FROM film");
-                            while ($donnees = $reponse->fetch()) {
-                                ?>
-                                <div class="">
-                                    <div class="container text-center">
-                                        <div class="col-xs-2 col-md-2">
-                                            <img class="img-responsive" src="image/<?= $donnees["film_image"] ?>" alt="prewiew">
-                                        </div>
-                                        <div class="col-xs-4 col-md-2">
-                                            <h4 class="product-name"><strong><?= $donnees["film_titre"] ?></strong></h4><h4><small><?= $donnees["film_format"] ?></small></h4>
-                                            <h4><small><?= $donnees["film_genre"] ?></small></h4>
-                                            <h4><small><?= $donnees["film_prix"] ?> €</small></h4>
-                                            <h4><small><?= $donnees["film_etat"] ?></small></h4>
-                                        </div>
-                                        <div class="col-xs-6 col-md-6 row">
-                                            <p><?= $donnees["film_resume"] ?></p>
-                                            <div class="col-xs-6 col-md-8 col-xs-pull-5 ">
-                                                <div class="col-md-5">
-                                                    <a href="#" class="btn btn-primary btn-lg btn-block btn-huge">COMMANDER</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </br>
-                                </br>
-                                </br>
-                                </br>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>     
-        </div>
+                            <div class="grid_1">
+                                <br>
+                                <h1>Inscription Réussite</h1>
+                                <div class="grid_2 text-center">
+                                    <ul class="iphone">
+                                        <li class="phone_desc">Vous pouvez passez une commande !</li>
+                                    </ul>
 
+                                </div>
+                            </div>
+                            <div class="register-but">                                                          
+                                <button class="btn btn-primary" OnClick="window.location.href = './'">Retour à l'accueil</button>
+                                <div class="clearfix"> </div>
+
+                            </div>
+                        </div>
+                    </div>     
+                </div>
+            </div>
+        </div>
     </body>
-</html>
+    <div class="copy">
+        <p> &copy; 2018 LAFLEUR. All Rights Reserved | Design by NEJE</p>
+    </div>    
+</html>		

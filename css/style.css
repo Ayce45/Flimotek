@@ -12,7 +12,6 @@ html, body{
     font-family: 'PT Sans Narrow', sans-serif;
     font-size: 100%;
     background:#fff; 
-    background-image: url("../image/image_fond.jpg");
 }
 body a{
     transition:0.5s all;

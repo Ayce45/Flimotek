@@ -1,5 +1,17 @@
 <?php
-include("connect.php");
+function logged_only() {
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (isset($_SESSION['auth'])) {
+        header('Location: admin_index.php');
+        exit();
+    }
+}
+
+logged_only();
+
+include("../connect.php");
 session_start();
 
 $user_id = $_REQUEST['username'];
@@ -11,8 +23,12 @@ $ligne = $table->fetch();
 if (!$ligne['username'] == null) {
     $_SESSION['auth'] = $user_id;
     header('Location: admin_index.php');
-    } else {
-    echo "Non"; 
+} else {
+    header('Location: admin_index.php');
+    ?>
+    <script> alert("Nom d'utilisateur inccorect ou Mot de passe incorrect")</script>   
+    <?php
+
 }
 ?>
     
