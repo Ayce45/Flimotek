@@ -5,10 +5,12 @@ function logged_only() {
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    if (isset($_SESSION['auth'])) {
-        header('Location: admin_index.php');
+    if (isset($_SESSION['auth'])){
+        if ($_SESSION['auth'] == "admin") {
+            header('Location: admin_index.php');
         exit();
     }
+}
 }
 
 logged_only();
@@ -56,7 +58,7 @@ logged_only();
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Mot de passe" name="password" type="password" value="">
                                     </div>                            
-                                    <input class="btn btn-lg btn-success btn-block" type="submit">
+                                    <input style="font-size: 17px;" class="btn btn-lg btn-success btn-block" type="submit">
                                 </fieldset>
                             </form>
                         </div>

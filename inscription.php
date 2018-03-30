@@ -37,11 +37,6 @@ include 'connect.php';
                         <div class="logo">
                             <h1><a href="./"><span class="m_1">F</span>LIMOTEK</a></h1>
                         </div>
-                        <div class="menu">
-                            <ul class="megamenu skyblue">	
-                                <li><a class="color7" href="inscription.php">Inscription</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -53,33 +48,35 @@ include 'connect.php';
                         <div class="card">
                             <div class="account-in">
                                 <div class="container">
-                                    <form method="POST" action="ajax/addAccount.php"> 
+                                    <form method="POST" action="ajax/addAccount.php" data-toggle="validator"> 
                                         <div class="register-top-grid grid_1">
                                             <h1>Inscription</h1>
                                             <div>
-                                                <span>Nom<label>*</label></span><input name="nom" type="text"> 
+                                                <span>Nom d'utilisateur<label>*</label></span>
+                                                <input name="username" type="text" required> 
                                             </div>
-                                            <div>
-                                                <span>Mot de passe<label>*</label></span>
-                                                <input name="pass" type="password"> 
-                                            </div>
-                                            <div>
-                                                <span>Confirmation<label>*</label></span>
-                                                <input name="confirm" type="password"> 
-                                            </div>
-                                            <div>
-                                                <span>Adresse<label>*</label></span>
-                                                <input name="adresse" type="text"> 
-                                            </div>
-                                            <div>
-                                                <span>Tel<label>*</label></span>
-                                                <input name="tel" type="text"> 
-                                            </div>
-                                            <div>
-                                                <span>Email<label>*</label></span>
-                                                <input name="email" type="text"> 
-                                            </div>
-                                            <div class="clearfix"> </div>
+                                            <form id="identicalForm">
+                                                <div>
+                                                    <span>Mot de passe<label>*</label></span>
+                                                    <input name="pass" type="password" required> 
+                                                </div>
+                                                <div>
+                                                    <span>Confirmation<label>*</label></span>
+                                                    <input name="confirm" type="password" required> 
+                                                </div>
+                                                <div>
+                                                    <span>Adresse<label>*</label></span>
+                                                    <input name="adresse" type="text" required> 
+                                                </div>
+                                                <div>
+                                                    <span>Tel<label>*</label></span>
+                                                    <input name="tel" type="text" required> 
+                                                </div>
+                                                <div>
+                                                    <span>Email<label>*</label></span>
+                                                    <input type="email" name="email" required>
+                                                </div>
+                                                <div class="clearfix"> </div>
                                         </div>                                       
                                         <div class="clearfix"> </div>
                                         <div class="register-but"> 
@@ -96,7 +93,7 @@ include 'connect.php';
         </div>
     </body>
     <div class="copy">
-        <!-- PayPal Logo --><table border="0" cellpadding="10" cellspacing="0" align="center"><tbody><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/fr/webapps/mpp/paypal-popup" title="PayPal Comment Ca Marche" onclick="javascript:window.open('https://www.paypal.com/fr/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" border="0" alt="PayPal Logo" /></a></td></tr></tbody></table><!-- PayPal Logo -->
+        <!-- PayPal Logo --><table border="0" cellpadding="10" cellspacing="0" align="center"><tbody><tr><td align="center"></td></tr><tr><td align="center"><a href="https://www.paypal.com/fr/webapps/mpp/paypal-popup" title="PayPal Comment Ca Marche" onclick="javascript:window.open('https://www.paypal.com/fr/webapps/mpp/paypal-popup', 'WIPaypal', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" border="0" alt="PayPal Logo" /></a></td></tr></tbody></table><!-- PayPal Logo -->
         <p class="text-info"> &copy; 2018 FLIMOTEK. All Rights Reserved | Design by MEF</p>
     </div>
 </html>		

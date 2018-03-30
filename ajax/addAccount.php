@@ -1,15 +1,15 @@
 <?php
+
 session_start();
 include('../connect.php');
 
 $i = 0;
-$nom = $_POST['nom'];
+$user = $_POST['username'];
 $pass = md5($_POST['pass']);
 $confirm = md5($_POST['confirm']);
 $adresse = $_POST['adresse'];
 $tel = $_POST['tel'];
 $email = $_POST['email'];
-
 
 //Vérification du mdp
 if ($pass != $confirm || empty($confirm) || empty($pass)) {
@@ -18,17 +18,10 @@ if ($pass != $confirm || empty($confirm) || empty($pass)) {
 }
 
 if ($i == 0) {
-    $query = $bdd->prepare('INSERT INTO client SET nom=:nom, adresse=:adresse, tel=:tel, email=:email, password=:pass');
-    $query->execute(array(
-    'nom' => $nom,
-    'adresse' => $adresse,
-    'tel' => $tel,
-    'email' => $email,
-    'pass' => $pass
-    ));
-    header('Location: ../sucessR.php');
-} 
-
+    $query = $bdd->prepare("INSERT INTO client SET username='$user', adresse='$adresse', tel='$tel', email='$email', password='$pass'");
+    $query->execute();
+    //header('Location: ../sucessR.php');
+}
 ?>
 
 
