@@ -4,10 +4,10 @@ function logged_only() {
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    if (!isset($_SESSION['auth'])) {
+    if ($_SESSION['auth'] != "admin") {
         header('Location: index.php');
         exit();
-    }
+    }    
 }
 
 logged_only();
@@ -15,7 +15,7 @@ logged_only();
 <!DOCTYPE HTML>
 <html style="background-color:rgb(0, 53, 106)" >
     <head>
-        <title>LAFLEUR | ADMIN</title>
+        <title>FILMOTEK | ADMIN</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="LAFLEUR E-COMMERCE" />

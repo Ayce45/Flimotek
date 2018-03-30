@@ -3,7 +3,7 @@ session_start();
 include 'connect.php';
 ?>
 <!DOCTYPE HTML>
-<html>
+<html style="background-color:rgb(0, 53, 106)">
     <head>
         <title>FLIMOTEK</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,10 +44,9 @@ include 'connect.php';
                                 <?php
                                 if (isset($_SESSION['auth'])) {
                                     ?>
-                                    <li><a class="color7" ><?= $_SESSION['auth'] ?></a></li>
-                                    <li><a class="color7" href="logout.php">Deconnexion</a></li>
-                                    <li><a class="color7" href="logout.php">mes commandes</a></li>
-                                    
+                                    <li><a class="color7" onclick='<script>alert("Salut <?= $_SESSION['auth'] ?>")</script>'><?= $_SESSION['auth'] ?></a></li>
+                                    <li><a class="color7" href="logout.php">Deconnexion<i class="fas fa-user-circle"></i>
+                                        </a></li>
                                     <?php
                                 } else {
                                     ?>
@@ -67,55 +66,31 @@ include 'connect.php';
                 <div class="box ">
                     <div class="info">
                         <div class="card">
-                            <br>
                             <div class="card-header bg-dark text-light">
                                 <div class="clearfix"></div>
                             </div>
-                            <?php
-                            $reponse = $bdd->query("SELECT * FROM film");
-                            while ($donnees = $reponse->fetch()) {
-                                ?>
-                                <form method="POST" action="ajax/addCommande.php">
-                                    <div class="container text-center">
-                                        <div class="col-xs-2 col-md-2">
-                                            <img class="img-responsive" src="image/<?= $donnees["film_image"] ?>" alt="prewiew">
-                                        </div>
-                                        <div class="col-xs-4 col-md-2">
-                                            <h4 class="product-name"><strong><?= $donnees["film_titre"] ?></strong></h4><h4><small><?= $donnees["film_format"] ?></small></h4>
-                                            <h4><small><?= $donnees["film_genre"] ?></small></h4>
-                                            <h4><small><?= $donnees["film_prix"] ?> €</small></h4>
-                                            <h4><small><?= $donnees["film_etat"] ?></small></h4>
-                                            <?php
-                                            
-                                            if (isset($_SESSION['auth'])){
-                                            ?><input class="hidden" name="user_id" value="<?=$_SESSION['auth']?>">
-                                             <?php
-                                            }                                           
-                                            ?>
-                                            <input class="hidden" name="film_num" value="<?= $donnees["film_num"] ?>">
-                                        </div>
-                                        <div class="col-xs-6 col-md-6 row">
-                                            <p><?= $donnees["film_resume"] ?></p>
-                                            <div class="col-xs-6 col-md-8 col-xs-pull-5 ">
-                                                <div class="col-md-5">
-                                                    <button type="submit" class="btn btn-primary">COMMANDER</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                                </br>
-                                </br>
-                                </br>
-                                </br>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>     
-        </div>
+                            <div class="grid_1">
+                                <br>
+                                <h1>Commande Effectuée</h1>
+                                <div class="grid_2 text-center">
+                                    <ul class="iphone">
+                                        <li class="phone_desc">La commande a été éfféctuée avec succès, elle arrivera d'ici peu!!! </li>
+                                    </ul>
 
+                                </div>
+                            </div>
+                            <div class="register-but">                                                          
+                                <button class="btn btn-primary" OnClick="window.location.href = './'">Retour à l'accueil</button>
+                                <div class="clearfix"> </div>
+
+                            </div>
+                        </div>
+                    </div>     
+                </div>
+            </div>
+        </div>
     </body>
-</html>
+    <div class="copy">
+        <p> &copy; 2018 LAFLEUR. All Rights Reserved | Design by NEJE</p>
+    </div>    
+</html>		

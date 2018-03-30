@@ -5,10 +5,10 @@ function logged_only() {
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    if (!isset($_SESSION['auth'])) {
+    if ($_SESSION['auth'] != "admin") {
         header('Location: index.php');
         exit();
-    }
+    }    
 }
 
 logged_only();
@@ -92,8 +92,8 @@ logged_only();
                                                     <th>Date d'achat</th>
                                                     <th>Prix</th>
                                                     <th>Etat</th>
-                                                    <th>Image</th>
-                                                    <th></th>
+                                                    <th style="width:15%">Image</th>
+                                                    <th style="width:5%"></th>
                                                 </tr>
                                             </thead>
 
@@ -112,10 +112,10 @@ logged_only();
                                                     <td><?= $donnees["film_prix"] ?> €</td>
                                                     <td><?= $donnees["film_etat"] ?></td>
                                                     <td><a class="color7" target="_blank" href="../image/<?= $donnees["film_image"] ?>"><?= $donnees["film_image"] ?></a></td>
-                                                    <td> <button class="btn btn-danger btn-sm"  onclick="window.location.href='deleteFilm.php?id=<?= $donnees["film_num"] ?>'" data-toggle="modal"><i class="fa fa-trash-o"></i></button>	  </td>
+                                                    <td> <button class="btn btn-danger btn-sm"  onclick="window.location.href = 'deleteFilm.php?id=<?= $donnees["film_num"] ?>'" data-toggle="modal"><i class="fa fa-trash-o"></i></button>	  </td>
                                                 </tr>
 
-<?php } ?>
+                                            <?php } ?>
 
                                         </table>
                                     </div>
