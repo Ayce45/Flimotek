@@ -46,8 +46,8 @@ include 'connect.php';
                                     ?>
                                     <li><a class="color7" ><?= $_SESSION['auth'] ?></a></li>
                                     <li><a class="color7" href="logout.php">Deconnexion</a></li>
-                                    <li><a class="color7" href="logout.php">mes commandes</a></li>
-                                    
+                                    <li><a class="color7" href="myCommande.php">mes commandes</a></li>
+
                                     <?php
                                 } else {
                                     ?>
@@ -56,7 +56,7 @@ include 'connect.php';
                                 }
                                 ?>
 
-                                <li><a class="color7" href="inscription.php">Inscription</a></li>                                
+                                <li><a class="color7" href="inscription.php">Inscription</a></li>
                             </ul>
                         </div>
                     </div>
@@ -86,11 +86,11 @@ include 'connect.php';
                                             <h4><small><?= $donnees["film_prix"] ?> €</small></h4>
                                             <h4><small><?= $donnees["film_etat"] ?></small></h4>
                                             <?php
-                                            
+
                                             if (isset($_SESSION['auth'])){
                                             ?><input class="hidden" name="user_id" value="<?=$_SESSION['auth']?>">
                                              <?php
-                                            }                                           
+                                            }
                                             ?>
                                             <input class="hidden" name="film_num" value="<?= $donnees["film_num"] ?>">
                                         </div>
@@ -114,7 +114,7 @@ include 'connect.php';
                         </div>
                     </div>
                 </div>
-            </div>     
+            </div>
         </div>
 
     </body>
