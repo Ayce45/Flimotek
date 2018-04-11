@@ -8,7 +8,7 @@ function logged_only() {
     if ($_SESSION['auth'] != "admin") {
         header('Location: index.php');
         exit();
-    }    
+    }
 }
 
 logged_only();
@@ -16,10 +16,10 @@ logged_only();
 <!DOCTYPE HTML>
 <html style="background-color:rgb(0, 53, 106)" >
     <head>
-        <title>LAFLEUR | ADMIN</title>
+        <title>FLIMOTEK | ADMIN</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="LAFLEUR E-COMMERCE" />
+        <meta name="keywords" content="FLIMOTEK E-COMMERCE" />
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -61,6 +61,7 @@ logged_only();
                         <ul class="megamenu skyblue">	
                             <li><a class="color7" href="view_film.php">Film</a></li>
                             <li><a class="color7" href="view_client.php">Client</a></li>   
+                            <li><a class="color7" href="view_commande.php">Commande</a></li>  
                         </ul>
                     </div>
                 </div>
@@ -74,7 +75,6 @@ logged_only();
                                 <div class="table-scrol">
                                     <h1 align="center">Produits</h1>
                                     <button class="btn btn-sucess" data-target="#createproduct" data-toggle="modal" ><i class="fa fa-plus"></i></button>
-                                    <button class="btn btn-sucess" data-target="#uploadimage" data-toggle="modal" ><i class="fa fa-image"></i></button>	
                                     </br>
                                     </br>
                                     <div class="table-responsive"><!--this is used for responsive display in mobile and other devices-->
@@ -123,83 +123,63 @@ logged_only();
                             </div>
                         </div>
                     </div>     
-                </div>
-                <div class="modal fade in" tabindex="1" role="dialog" id="createproduct">        <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <form method="POST" action="../ajax/addFilm.php">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-center">⚠ CREATION PRODUIT ⚠</h5>
-                                </div>
-                                <div class="modal-body">
-                                    <div>
-                                        <span>Numéro*         <label></label></span>
-                                        <input name="num" type="text"> 
-                                    </div>
-                                    <div>
-                                        <span>Titre*<label></label></span>
-                                        <input name="titre" type="text"> 
-                                    </div>
-                                    <div>
-                                        <span>Genre*<label></label></span>
-                                        <input name="genre" type="text"> 
-                                    </div>
-                                    <div>
-                                        <span>Format*     <label></label></span>
-                                        <input name="format" type="text"> 
-                                    </div>
-                                    <div>
-                                        <span>Date d'achat*         <label></label></span>
-                                        <input name="date" type="text"> 
-                                    </div>
-                                    <div>
-                                        <span>Prix*         <label></label></span>
-                                        <input name="prix" type="text"> 
-                                    </div>
-                                    <div>
-                                        <span>Etat*         <label></label></span>
-                                        <input name="etat" type="text"> 
-                                    </div>
-                                    <div>
-                                        <span>Image*         <label></label></span>
-                                        <input name="image" type="text"> 
-                                    </div>
-                                    <div>
-                                        <span>Résumé*         <label></label></span>
-                                        <input name="resume" type="text"> 
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Oui</button>                    
-                                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Non</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>    
-
-                <div class="modal fade in" tabindex="1" role="dialog" id="uploadimage">        <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <form enctype="multipart/form-data" method="POST" action="../ajax/addPicture.php">
-                                <div class="modal-header">
-                                    <h5 class="modal-title text-center">⚠ UPLOAD IMAGE ⚠</h5>
-                                </div>
-                                <div class="modal-body">
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />                            
-                                    <input name="file" type="file" />
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Oui</button>                    
-                                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Non</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div> 
-
+                </div>                
             </div>
-    </body>
+        </div>
 
+        <div class="modal" tabindex="1" role="dialog" id="createproduct">      
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form method="POST" enctype="multipart/form-data" action="../ajax/addFilm.php">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center">⚠ CREATION FILM ⚠</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <span>Numéro*         <label></label></span>
+                                <input name="num" type="text"> 
+                            </div>
+                            <div>
+                                <span>Titre*<label></label></span>
+                                <input name="titre" type="text"> 
+                            </div>
+                            <div>
+                                <span>Genre*<label></label></span>
+                                <input name="genre" type="text"> 
+                            </div>
+                            <div>
+                                <span>Format*     <label></label></span>
+                                <input name="format" type="text"> 
+                            </div>
+                            <div>
+                                <span>Date d'achat*         <label></label></span>
+                                <input name="date" type="text"> 
+                            </div>
+                            <div>
+                                <span>Prix*         <label></label></span>
+                                <input name="prix" type="text"> 
+                            </div>
+                            <div>
+                                <span>Etat*         <label></label></span>
+                                <input name="etat" type="text"> 
+                            </div>
+                            <div>
+                                <span>Image*         </span>                     
+                                <input name="file" type="file" style="display: initial;" required>                                                 
+                            </div>
+                            <div>
+                                <span>Résumé*         <label></label></span>
+                                <input name="resume" type="text"> 
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Oui</button>                    
+                            <button type="button" class="btn btn-secondary " data-dismiss="modal">Non</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </body>
 </html>
+

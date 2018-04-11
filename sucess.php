@@ -91,6 +91,6 @@ include 'connect.php';
         </div>
     </body>
     <div class="copy">
-        <p> &copy; 2018 LAFLEUR. All Rights Reserved | Design by NEJE</p>
+        <p> &copy; 2018 FLIMOTEK. All Rights Reserved | Design by NEJE</p>
     </div>    
 </html>		

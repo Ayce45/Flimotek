@@ -18,6 +18,7 @@ $user_id = $_REQUEST['username'];
 $user_pass = md5($_REQUEST['password']);
 
 $run = "SELECT * FROM admin WHERE username='$user_id' AND password='$user_pass'";
+echo $run;
 $table = $bdd->query($run);
 $ligne = $table->fetch();
 if (!$ligne['username'] == null) {

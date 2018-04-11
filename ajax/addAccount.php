@@ -20,7 +20,7 @@ if ($pass != $confirm || empty($confirm) || empty($pass)) {
 if ($i == 0) {
     $query = $bdd->prepare("INSERT INTO client SET username='$user', adresse='$adresse', tel='$tel', email='$email', password='$pass'");
     $query->execute();
-    //header('Location: ../sucessR.php');
+    header('Location: ../sucessR.php');
 }
 ?>
 
