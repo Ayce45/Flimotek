@@ -57,6 +57,7 @@ include 'connect.php';
                                 ?>
 
                                 <li><a class="color7" href="inscription.php">Inscription</a></li>
+                                <li><a class="color7" href="mentions.php">mentions legales</a></li>
                             </ul>
                         </div>
                     </div>
@@ -86,10 +87,9 @@ include 'connect.php';
                                             <h4><small><?= $donnees["film_prix"] ?> €</small></h4>
                                             <h4><small><?= $donnees["film_etat"] ?></small></h4>
                                             <?php
-
-                                            if (isset($_SESSION['auth'])){
-                                            ?><input class="hidden" name="user_id" value="<?=$_SESSION['auth']?>">
-                                             <?php
+                                            if (isset($_SESSION['auth'])) {
+                                                ?><input class="hidden" name="user_id" value="<?= $_SESSION['auth'] ?>">
+                                                <?php
                                             }
                                             ?>
                                             <input class="hidden" name="film_num" value="<?= $donnees["film_num"] ?>">
@@ -119,3 +119,5 @@ include 'connect.php';
 
     </body>
 </html>
+
+

@@ -1,5 +1,6 @@
 <?php
 include 'connect.php';
+session_start();
 ?>
 <!DOCTYPE HTML>
 <html style="background-color:rgb(0, 53, 106)">
@@ -33,9 +34,32 @@ include 'connect.php';
         <header>
             <div class="banner">
                 <div class="container">
+                    <div class="header_top">
+                    </div>
                     <div class="header_bottom">
                         <div class="logo">
                             <h1><a href="./"><span class="m_1">F</span>LIMOTEK</a></h1>
+                        </div>
+                        <div class="menu">
+                           <ul class="megamenu skyblue">
+                                <?php
+                                if (isset($_SESSION['auth'])) {
+                                    ?>
+                                    <li><a class="color7" ><?= $_SESSION['auth'] ?></a></li>
+                                    <li><a class="color7" href="logout.php">Deconnexion</a></li>
+                                    <li><a class="color7" href="myCommande.php">mes commandes</a></li>
+
+                                    <?php
+                                } else {
+                                    ?>
+                                    <li><a class = "color7" href = "connexion.php">Connexion</a></li>
+                                    <?php
+                                }
+                                ?>
+
+                                <li><a class="color7" href="inscription.php">Inscription</a></li>
+                                <li><a class="color7" href="mentions.php">mentions legales</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

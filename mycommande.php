@@ -41,7 +41,7 @@ session_start();
                             <h1><a href="./"><span class="m_1">F</span>LIMOTEK</a></h1>
                         </div>
                         <div class="menu">
-                            <ul class="megamenu skyblue">
+                           <ul class="megamenu skyblue">
                                 <?php
                                 if (isset($_SESSION['auth'])) {
                                     ?>
@@ -58,11 +58,14 @@ session_start();
                                 ?>
 
                                 <li><a class="color7" href="inscription.php">Inscription</a></li>
+                                <li><a class="color7" href="mentions.php">mentions legales</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
+            </div>
         </header>
+        
         <div class="container">
             <div class="row">
                 <div class="box ">
